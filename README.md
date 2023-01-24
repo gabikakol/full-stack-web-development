@@ -1,2 +1,11 @@
-# full-stack-web-development
-Full Stack Web Development course (5cr), University of Helsinki
+# Full Stack Web Development 
+This is repository for the Full Stack Web Development course (5cr), University of Helsinki. <br/>
+https://fullstackopen.com/en/ 
+
+## Structure
+### Part 0
+- 0.4 new note diagram
+- 0.5 single page app diagram
+- 0.6 new note in single page app diagam
+### Part 1
+

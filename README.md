@@ -5,7 +5,7 @@ https://fullstackopen.com/en/
 ## Structure
 ### Part 0
 - [0.4 new note diagram](/part0/0.4_new-note-diagram.md)
-- 0.5 single page app diagram
+- [0.5 single page app diagram](/part0/0.5_single-page-app-diagram.md)
 - 0.6 new note in single page app diagam
 ### Part 1
 

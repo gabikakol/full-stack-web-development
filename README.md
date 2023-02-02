@@ -6,6 +6,6 @@ https://fullstackopen.com/en/
 ### Part 0
 - [0.4 new note diagram](/part0/0.4_new-note-diagram.md)
 - [0.5 single page app diagram](/part0/0.5_single-page-app-diagram.md)
-- 0.6 new note in single page app diagam
+- [0.6 new note in single page app diagam](/part0/0.6_new-note-in-single-page-app-diagram.md)
 ### Part 1
 

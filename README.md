@@ -1,4 +1,4 @@
-# Full Stack Web Development 
+# Full Stack Web Development - MOOC
 This is repository for the Full Stack Web Development course (5cr), University of Helsinki. <br/>
 https://fullstackopen.com/en/ 
 

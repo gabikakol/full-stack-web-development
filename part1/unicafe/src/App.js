@@ -26,7 +26,7 @@ const App = () => {
   }
 
 
-  const StatisticsCond = (props) => {
+  const Statistics = (props) => {
     console.log('all', props.all)
 
     if (props.all === 0) {
@@ -35,28 +35,33 @@ const App = () => {
           No feedback given
         </div>
       )
-    }   
-    
+    }       
     return (
       <div>
-        <Statistics name='good' stat={good}/>
-        <Statistics name='neutral' stat={neutral}/>
-        <Statistics name='bad' stat={bad}/>
-        <Statistics name='all' stat={all}/>
-        <Statistics name='average' stat={(good-bad)/all}/>
-        <Statistics name='positive' stat={(good/all*100)+' %'}/> 
+        <StatisticsLine text='good' value={good}/>
+        <StatisticsLine text='neutral' value={neutral}/>
+        <StatisticsLine text='bad' value={bad}/>
+        <StatisticsLine text='all' value={all}/>
+        <StatisticsLine text='average' value={(good-bad)/all}/>
+        <StatisticsLine text='positive' value={(good/all*100)+' %'}/> 
       </div>
     )
-
-
   }
 
-  const Statistics = (props) => {
-    console.log(props.name, props.stat)
+  const MyButton = (props) => {
+    return (
+      <div>
+        <button onClick={props.action}>{props.opinion}</button>
+      </div>
+    )
+  }
+
+  const StatisticsLine = (props) => {
+    console.log(props.text, props.value)
 
     return (
       <div>
-        <p>{props.name} {props.stat}</p>
+        <p>{props.text} {props.value}</p>
       </div>
     )
   }
@@ -64,12 +69,13 @@ const App = () => {
   return (
     <div>
       <h1>give feedback</h1>
-      <button onClick={handleClickGood}>good</button>
-      <button onClick={handleClickNeutral}>neutral</button>
-      <button onClick={handleClickBad}>bad</button>
+      <MyButton action= {handleClickGood} opinion='good'/>
+      <MyButton action= {handleClickNeutral} opinion='neutral'/>
+      <MyButton action= {handleClickBad} opinion='bad'/>
+      
 
       <h1>statistics</h1> 
-      <StatisticsCond all={all}/>
+      <Statistics all={all}/>
       
     </div>
   )

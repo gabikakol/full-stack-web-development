@@ -9,3 +9,5 @@ https://fullstackopen.com/en/
 - [0.6 new note in single page app diagam](/part0/0.6_new-note-in-single-page-app-diagram.md)
 ### Part 1
 - [1.1-1.5 corse info](/part1/course-info)
+- [1.6-1.11 unicafe](/part1/unicafe)
+- [1.7-1.14 anecdotes](/part1/anecdotes)

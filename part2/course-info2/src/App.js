@@ -1,24 +1,31 @@
 const Header = ({ course }) => <h1>{course}</h1>
 
-const Total = ({ sum }) => <p>Number of exercises {sum}</p>
+const Total = ({ sum }) => <h4>Number of exercises {sum}</h4>
 
 const Part = ({ part }) => 
   <p>
     {part.name} {part.exercises}
   </p>
 
-const Content = ({ parts }) => 
-  <>
-    <Part
-      part={parts[0]} 
-    />
-    <Part
-      part={parts[1]} 
-    />
-    <Part
-      part={parts[2]} 
-    />      
-  </>
+const Content = ({ parts }) => {
+  return (
+    <div>
+      {parts.map(part => <Part key={part.id} part={part}/>)}
+    </div>
+  )
+}
+
+const Sum = ({parts}) => {
+  console.log('array', parts)
+  let calcSum = 0
+  parts.forEach(item => (
+    calcSum += item.exercises
+  ))
+  console.log('sum', calcSum)
+  return (
+    <Total sum={calcSum}/>
+  )
+}
 
 const Course = (props) => {
   console.log('component Course')
@@ -26,9 +33,11 @@ const Course = (props) => {
     <div>
       <Header course={props.course.name}/>
       <Content parts={props.course.parts}/>
+      <Sum parts={props.course.parts}/>
     </div>
   )
 }
+
 
 const App = () => {
   const course = {
@@ -49,6 +58,11 @@ const App = () => {
         name: 'State of a component',
         exercises: 14,
         id: 3
+      },
+      {
+        name: 'test',
+        exercises: 100,
+        id: 4
       }
     ]
   }

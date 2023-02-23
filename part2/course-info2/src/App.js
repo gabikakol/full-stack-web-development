@@ -16,6 +16,14 @@ const Content = ({ parts }) => {
 }
 
 const Sum = ({parts}) => {
+  const calcSum = parts.reduce((prev, cur) => prev+cur.exercises, 0)
+  return (
+    <Total sum={calcSum}/>
+  )
+}
+
+/* 
+const Sum = ({parts}) => {
   console.log('array', parts)
   let calcSum = 0
   parts.forEach(item => (
@@ -25,7 +33,8 @@ const Sum = ({parts}) => {
   return (
     <Total sum={calcSum}/>
   )
-}
+} 
+*/
 
 const Course = (props) => {
   console.log('component Course')

@@ -8,6 +8,9 @@ https://fullstackopen.com/en/
 - [0.5 single page app diagram](/part0/0.5_single-page-app-diagram.md)
 - [0.6 new note in single page app diagam](/part0/0.6_new-note-in-single-page-app-diagram.md)
 ### Part 1
-- [1.1-1.5 corse info](/part1/course-info)
+- [1.1-1.5 corse-info](/part1/course-info)
 - [1.6-1.11 unicafe](/part1/unicafe)
 - [1.7-1.14 anecdotes](/part1/anecdotes)
+### Part 2
+- [2.1-2.5 course-info](/part2/course-info2)
+- [2.6- phonebook](/part2/phonebook)

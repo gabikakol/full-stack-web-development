@@ -43,7 +43,7 @@ const App = () => {
     setNewFilter(event.target.value)
   }
 
-  const Person = ({person}) => {
+  const PersonShow = ({person}) => {
     return (
       <div>
         {person.name} {person.number}
@@ -56,10 +56,10 @@ const App = () => {
   : persons.filter(person => person.name.toLowerCase().includes(newFilter.toLowerCase()))
   
   
-  const PersonsShow = ({persons}) => {
-    console.log('PersonsShow', persons)
+  const Persons = ({persons}) => {
+    console.log('Persons', persons)
     return (
-      persons.map(person => <Person key={person.name} person={person}/>)
+      persons.map(person => <PersonShow key={person.name} person={person}/>)
     )
   }
 
@@ -78,10 +78,9 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      <PersonsShow persons={PersonsFilter}/>
+      <Persons persons={PersonsFilter}/>
     </div>
   )
 }
 
 export default App
-

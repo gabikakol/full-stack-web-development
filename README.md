@@ -15,3 +15,4 @@ https://fullstackopen.com/en/
 - [2.1-2.5 course-info](/part2/course-info2)
 - [2.6-2.17 phonebook](/part2/phonebook)
 - [2.18-2.20 countries](/part2/countries)
+### Part 3

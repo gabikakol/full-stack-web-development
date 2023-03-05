@@ -13,4 +13,5 @@ https://fullstackopen.com/en/
 - [1.7-1.14 anecdotes](/part1/anecdotes)
 ### Part 2
 - [2.1-2.5 course-info](/part2/course-info2)
-- [2.6- phonebook](/part2/phonebook)
+- [2.6-2.17 phonebook](/part2/phonebook)
+- [2.18-2.20 countries](/part2/countries)

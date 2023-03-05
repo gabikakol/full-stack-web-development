@@ -14,7 +14,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [newFilter, setNewFilter] = useState('')
-  const [infoMessage, setInfoMessage] = useState(null)
+  const [infoMessage, setInfoMessage] = useState([null, true])
 
 /*  { name: 'Arto Hellas', number: '040-123456'},
     { name: 'Ada Lovelace', number: '39-44-5323523'},
@@ -44,10 +44,13 @@ const App = () => {
           .then(returnedPerson => {
             setPersons(persons.map(person => person.id !== findName.id ? person : returnedPerson))
           })
-          .then(info => {setInfoMessage(`Changed number of ${newName}`)
-            setTimeout(() => {setInfoMessage(null)}, 2000)
+          .then(info => {setInfoMessage([`Changed number of ${newName}`, true])
+            setTimeout(() => {setInfoMessage([null, true])}, 2000)
           })
+          .catch(error => {setInfoMessage([`Information of ${newName} has already been removed from the server`, false])
+            setTimeout(() => {setInfoMessage([null, true])}, 2000)})
           console.log('.then(info-changed)', infoMessage)
+          console.log('.catch(error)', infoMessage)
       }
     }
     else {
@@ -58,8 +61,8 @@ const App = () => {
       .then(returnedPerson => {
         setPersons(persons.concat(returnedPerson))
       })
-      .then(info => {setInfoMessage(`Added ${newName}`)
-        setTimeout(() => {setInfoMessage(null)}, 2000)
+      .then(info => {setInfoMessage([`Added ${newName}`, true])
+        setTimeout(() => {setInfoMessage([null, true])}, 2000)
       })
       console.log('.then(info-added)', infoMessage)
     }  

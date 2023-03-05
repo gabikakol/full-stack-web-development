@@ -4,7 +4,7 @@ import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
 
-import personService from './services/persons'
+import personService from './services/personsService'
 
 const App = () => {
   const [persons, setPersons] = useState([]) 
@@ -33,17 +33,19 @@ const App = () => {
 
     if (findName !== undefined) {
       console.log('name repeated, not added')
-      window.alert(`${newName} is already added to phonebook`)
+      if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
+        console.log('change number')
+      }
     }
     else {
       setPersons(persons.concat(personObject))
-    }
 
-    personService
+      personService
       .create(personObject)
       .then(returnedPerson => {
         setPersons(persons.concat(returnedPerson))
       })
+    }  
 
       setNewName('')
       setNewNumber('')
@@ -64,6 +66,21 @@ const App = () => {
     setNewFilter(event.target.value)
   }
 
+  const handleDelete = (event) => {
+    console.log('click delete')
+    const id = persons.find(person => person.name === event.target.id).id
+    console.log('delete id', id)
+
+    if (window.confirm(`Delete ${event.target.id}?`)) {
+      return (
+        personService
+          .deleteNumber(id)
+          .then(returnedPerson => {setPersons(persons.filter(
+            person => person.name !== event.target.id))})
+      )
+    }
+  }
+
   const PersonsFilter = (newFilter === '')
   ? persons 
   : persons.filter(person => person.name.toLowerCase().includes(newFilter.toLowerCase()))
@@ -75,7 +92,7 @@ const App = () => {
       <h2>Add a new</h2>
       <PersonForm addName={addName} newName={newName} handleNameChange={handleNameChange} newNumber={newNumber} handleNumberChange={handleNumberChange} />
       <h2>Numbers</h2>
-      <Persons persons={PersonsFilter}/>
+      <Persons persons={PersonsFilter} handleDelete={handleDelete}/>
     </div>
   )
 }

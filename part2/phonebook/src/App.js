@@ -35,6 +35,11 @@ const App = () => {
       console.log('name repeated, not added')
       if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
         console.log('change number')
+        personService
+          .update(findName.id, personObject)
+          .then(returnedPerson => {
+            setPersons(persons.map(person => person.id !== findName.id ? person : returnedPerson))
+          })
       }
     }
     else {

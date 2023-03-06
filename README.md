@@ -10,7 +10,9 @@ https://fullstackopen.com/en/
 ### Part 1
 - [1.1-1.5 corse-info](/part1/course-info)
 - [1.6-1.11 unicafe](/part1/unicafe)
-- [1.7-1.14 anecdotes](/part1/anecdotes)
+- [1.12-1.14 anecdotes](/part1/anecdotes)
 ### Part 2
 - [2.1-2.5 course-info](/part2/course-info2)
-- [2.6- phonebook](/part2/phonebook)
+- [2.6-2.17 phonebook](/part2/phonebook)
+- [2.18-2.20 countries](/part2/countries)
+### Part 3

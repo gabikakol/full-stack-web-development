@@ -24,13 +24,48 @@ let persons = [
     }
 ]
 
+/* let notes = [
+  {
+    id: 1,
+    content: "HTML is easy",
+    important: true
+  },
+  {
+    id: 2,
+    content: "Browser can execute only JavaScript",
+    important: false
+  },
+  {
+    id: 3,
+    content: "GET and POST are the most important methods of HTTP protocol",
+    important: true
+  }
+] */
+
 
 app.get('/', (request,response) => {
     response.send('<h1>hello world</h1>')
 })
 
-app.get('/api/persons', (request,response) => {
-    response.json(persons)
+app.get('/info', (request, response) => {
+    const len = persons.length
+    response.send(
+        `<p>Phonebook has info for ${len} people</p>
+        <p>${new Date()}</p>`)
+})
+
+app.get('/api/persons/:id', (request,response) => {
+    const id = Number(request.params.id)
+    console.log('id:', id)
+    const person = persons.find(person => person.id === id)
+    console.log('person:', person)
+
+    if (person) {
+        response.json(person)
+    } else {
+        response.status(404).end()
+    }
+    
 })
 
 const PORT = 3001

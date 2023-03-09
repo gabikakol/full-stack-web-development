@@ -93,6 +93,14 @@ app.post('/api/persons', (request, response) => {
       })
     }
 
+    const checkName = persons.find(p => p.name === person.name)
+    if (checkName) {
+      console.log('not unique:', checkName)
+      return response.status(400).json({
+        error: 'name must be unique'
+      })
+    }
+
     person.id = generateId()
 
     persons = persons.concat(person)

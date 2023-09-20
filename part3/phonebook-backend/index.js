@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-/* const cors = require('cors') */
+const cors = require('cors')
 
 const requestLogger = (request, response, next) => {
     console.log('Method:', request.method)
@@ -13,7 +13,7 @@ const requestLogger = (request, response, next) => {
 
 app.use(express.json())
 app.use(requestLogger)
-/* app.use(cors()) */
+app.use(cors())
 
 morgan.token('body',(req, res, next) => { return JSON.stringify(req.body) });
 const tiny = ':method :url :status :res[content-length] - :response-time ms :body'

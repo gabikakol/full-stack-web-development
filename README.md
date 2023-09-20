@@ -16,6 +16,4 @@ https://fullstackopen.com/en/
 - [2.6-2.17 phonebook](/part2/phonebook)
 - [2.18-2.20 countries](/part2/countries)
 ### Part 3
-- [phonebook-backend](/part3/phonebook-backend)
-- [phonebook-frontend](/part3/phonebook-frontend)
-- [link to the app](part3/README.md)
+

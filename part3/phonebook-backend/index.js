@@ -14,6 +14,7 @@ const requestLogger = (request, response, next) => {
 app.use(express.json())
 app.use(requestLogger)
 app.use(cors())
+app.use(express.static('dist'))
 
 morgan.token('body',(req, res, next) => { return JSON.stringify(req.body) });
 const tiny = ':method :url :status :res[content-length] - :response-time ms :body'
@@ -44,7 +45,7 @@ let persons =
 ]
 
 app.get('/', (request, response) => {
-  response.send('<h1>Hello World!</h1>')
+  response.json(persons)
 })
 
 app.get('/info', (request, response) => {

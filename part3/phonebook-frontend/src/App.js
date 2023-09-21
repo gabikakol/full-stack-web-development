@@ -95,7 +95,7 @@ const App = () => {
       <Notification message={infoMessage}/>
       <Filter newFilter={newFilter} handleFilterChange={handleFilterChange}/>
       
-      <h2>add a new</h2>
+      <h2>Add a new</h2>
       <PersonForm addPerson={addPerson} newName={newName} handleNameChange={handleNameChange} newNumber={newNumber} handleNumberChange={handleNumberChange}/>
       
       <h2>Numbers</h2>

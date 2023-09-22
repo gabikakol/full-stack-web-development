@@ -1,7 +1,34 @@
+require('dotenv').config()
+
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const cors = require('cors')
+const Person = require('./models/person')
+
+/* const mongoose = require('mongoose')
+
+const password = 'fullstack3'
+const url = `mongodb+srv://kakolgab:${password}@fullstack.ilfyoih.mongodb.net/?retryWrites=true&w=majority`
+
+mongoose.set('strictQuery',false)
+mongoose.connect(url)
+
+
+const personSchema =  new mongoose.Schema({
+  name : String,
+  number: String,
+})
+
+personSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v
+  }
+})
+
+const Person = mongoose.model(('Person'), personSchema) */
 
 const requestLogger = (request, response, next) => {
     console.log('Method:', request.method)
@@ -56,7 +83,9 @@ app.get('/info', (request, response) => {
 })
 
 app.get('/api/persons', (request, response) => {
-  response.json(persons)
+  Person.find({}).then(persons => {
+    response.json(persons)
+  })
 })
 
 app.get('/api/persons/:id', (request, response) => {
@@ -106,13 +135,17 @@ app.post('/api/persons', (request, response) => {
 
   const person = {
     name: body.name,
-    number: body.number,
-    id: generateId(),
+    number: body.number
+    /* id: generateId(), */
   }
 
-  persons = persons.concat(person)
+  /* persons = persons.concat(person)
 
-  response.json(person)
+  response.json(person) */
+
+  person.save().then(savedPerson => {
+    response.json(savedPerson)
+  })
 })
 
 
@@ -123,7 +156,7 @@ const unknownEndpoint = (request, response) => {
 
 app.use(unknownEndpoint)
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })

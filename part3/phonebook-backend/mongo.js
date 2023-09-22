@@ -38,6 +38,7 @@ if (process.argv.length === 3) {
         name: name_input,
         number: number_input,
     })
+    
     person.save()
         .then(result => {
             console.log(`added ${name_input} number ${number_input} to phonebook`)

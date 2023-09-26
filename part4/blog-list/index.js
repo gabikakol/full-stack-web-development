@@ -12,7 +12,8 @@ const blogSchema = new mongoose.Schema({
 
 const Blog = mongoose.model('Blog', blogSchema);
 
-const mongoUrl = "mongodb+srv://kakolgab:fullstack3@fullstack.ilfyoih.mongodb.net/?retryWrites=true&w=majority"
+//remember the password!
+const mongoUrl = "mongodb+srv://kakolgab:<password>@fullstack.ilfyoih.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

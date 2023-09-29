@@ -1,7 +1,7 @@
 const lodash = require('lodash')
 
 const dummy = (blogs) => {
-    return 1
+    return 2
 }
 
 const totalLikes = (blogs) => {
